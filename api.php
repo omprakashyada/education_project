@@ -1,0 +1,20 @@
+
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_HTTPHEADER => array(
+    'X-CSCAPI-KEY: API_KEY'
+  ),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+echo $response;
+$httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+echo $httpCode;
+
+?>
